@@ -1,22 +1,22 @@
 const App = () => {
   return (
-    <>
-      <header>
-        <h1>Wildfacts Explorer</h1>
-        <p>Click an animal to learn a fun fact.</p>
+    <div className="app">
+      <header className="hero">
+        <h1 className="hero-title">Wildfacts Explorer</h1>
+        <p className="hero-text">Click an animal to learn a fun fact.</p>
       </header>
 
-      <main>
-        <section>
-          <h2>Animal Gallery</h2>
+      <main className="main-content">
+        <section className="gallery-section">
+          <h2 className="section-title">Animal Gallery</h2>
         </section>
 
-        <section>
-          <h2>Fun Fact</h2>
-          <p>Select an animal to see a fact here.</p>
+        <section className="fact-section">
+          <h2 className="section-title">Fun Fact</h2>
+          <p className="fact-placeholder">Select an animal to see a fact here.</p>
         </section>
       </main>
-    </>
+    </div>
   );
 };
 
