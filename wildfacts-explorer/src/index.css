@@ -96,6 +96,7 @@ select {
 .animal-grid {
   display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .animal-card {
@@ -103,18 +104,61 @@ select {
   border: 1px solid var(--border);
   border-radius: 1rem;
   background-color: rgba(15, 23, 42, 0.35);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.animal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 .animal-image {
   width: 100%;
-  height: 620px;
+  height: 160px;
   object-fit: cover;
+}
+
+.animal-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem;
 }
 
 .animal-name {
   margin: 0;
-  padding: 1rem;
   text-transform: capitalize;
   font-size: 1rem;
 }
 
+.animal-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background-color: var(--accent);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.animal-button:hover {
+  opacity: 0.9;
+}
+
+.animal-button:active {
+  transform: scale(0.98);
+}
+
+.animal-button:focus-visible {
+  outline: 3px solid rgba(139, 92, 246, 0.35);
+  outline-offset: 3px;
+}

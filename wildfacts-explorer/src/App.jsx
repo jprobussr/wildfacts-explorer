@@ -5,6 +5,7 @@ const App = () => {
   const [selectedFact, setSelectedFact] = useState(
     'Select an animal to see a fact here.',
   );
+
   const animalEntries = Object.entries(animals);
 
   const handleShowFact = (animalName) => {
@@ -18,8 +19,10 @@ const App = () => {
   return (
     <div className="app">
       <header className="hero">
-        <h1 className="hero-title">Wildfacts Explorer</h1>
-        <p className="hero-text">Click an animal to learn a fun fact.</p>
+        <h1 className="hero-title">WildFacts Explorer</h1>
+        <p className="hero-text">
+          Explore the gallery and reveal a fun fact for each animal.
+        </p>
       </header>
 
       <main className="main-content">
@@ -29,13 +32,18 @@ const App = () => {
           <div className="animal-grid">
             {animalEntries.map(([name, animal]) => {
               return (
-                <article
-                  className="animal-card"
-                  key={name}
-                  onClick={() => handleShowFact(name)}
-                >
+                <article className="animal-card" key={name}>
                   <img src={animal.image} alt={name} className="animal-image" />
-                  <h3 className="animal-name">{name}</h3>
+
+                  <div className="animal-card-body">
+                    <h3 className="animal-name">{name}</h3>
+                    <button
+                      className="animal-button"
+                      onClick={() => handleShowFact(name)}
+                    >
+                      Show Fact
+                    </button>
+                  </div>
                 </article>
               );
             })}
@@ -44,9 +52,7 @@ const App = () => {
 
         <section className="fact-section">
           <h2 className="section-title">Fun Fact</h2>
-          <p className="fact-placeholder">
-            {selectedFact}
-          </p>
+          <p className="fact-placeholder">{selectedFact}</p>
         </section>
       </main>
     </div>
